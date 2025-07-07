@@ -1,25 +1,14 @@
 # Event-Driven-File-Processing-System
 
+---
+
+## Project Overview
+
 This project implements a **serverless event-driven file processing system** using AWS Lambda, S3, and SNS, integrated with a fully automated **CI/CD pipeline** built with **GitHub**, **AWS CodePipeline**, **CodeBuild**, and **CloudFormation**.
 
 ---
 
-## 🧭 Table of Contents
-
-- [Overview](#-overview)
-- [Architecture](#-architecture)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [CI/CD Pipeline Workflow](#-cicd-pipeline-workflow)
-- [IAM and Security](#-iam-and-security)
-- [Key Files](#-key-files)
-- [CloudWatch Logging](#-cloudwatch-logging)
-- [Deployment Instructions](#-deployment-instructions)
-- [Best Practices](#-best-practices)
-
----
-
-## 📦 Overview
+## 📦 Project Objective
 
 This project is designed to:
 
@@ -30,9 +19,34 @@ This project is designed to:
 
 ---
 
-## 🛠 Architecture
+##  AWS Services Used
 
-```text
-GitHub Repo → CodePipeline → CodeBuild → S3 → CloudFormation → Lambda (triggered by S3 event)
-                                                                 ↓
-                                                           Publishes to SNS
+ - **GitHub** : Source control and CI/CD trigger
+ - **Cloudformation** : Infrastructure as Code
+ - **Amazon Lambda** : Event-driven processing logic
+ - **AWS CodeBuild** : Build Lambda package and store in S3 
+ - **AWS CodePipeline** : Automate CI/CD stages
+ - **Amazon S3** : Lambda code storage and event trigger
+ - **SNS** : Notification service
+ - **Amazon CloudWatch** : Logging and monitoring
+
+---
+
+## Instance Deployment 
+
+The entire infrastructure for this project was provisioned using AWS CloudFormation, ensuring repeatable, automated, and version-controlled deployments,templates stored in Git.
+
+### Project Structure (GitHub)
+
+event-driven-file-processing/
+├── lambda/
+│   └── lambda_function.py         # Lambda handler code
+├── templates/                     # CloudFormation Templates
+│   └── lambdaS3codeBucket.yaml    # S3 Bucket for Storing Lambda Code(Versions)
+│   └── lambda.yaml                # Lambda Function
+│   └── s3.yaml                    # Trigger Bucket
+│   └── sns.yaml                   # Simple Notification Service
+├── buildspec.yml                  # Codebuild Spec
+
+
+
