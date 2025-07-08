@@ -39,13 +39,21 @@ The entire infrastructure for this project was provisioned using AWS CloudFormat
 ### Project Structure (GitHub)
 
 event-driven-file-processing/
+
 ├── lambda/
+
 │   └── lambda_function.py         # Lambda handler code
+
 ├── templates/                     # CloudFormation Templates
+
 │   └── lambdaS3codeBucket.yaml    # S3 Bucket for Storing Lambda Code(Versions)
+
 │   └── lambda.yaml                # Lambda Function
+
 │   └── s3.yaml                    # Trigger Bucket
+
 │   └── sns.yaml                   # Simple Notification Service
+
 ├── buildspec.yml                  # Codebuild Spec
 
 
