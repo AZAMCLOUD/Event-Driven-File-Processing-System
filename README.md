@@ -42,19 +42,19 @@ event-driven-file-processing/
 
 ├── lambda/
 
-│   └── lambda_function.py         # Lambda handler code
+│   └── lambda_function.py             # Lambda handler code
 
-├── templates/                     # CloudFormation Templates
+├── templates/                         # CloudFormation Templates
 
-│   └── lambdaS3codeBucket.yaml    # S3 Bucket for Storing Lambda Code(Versions)
+│   └── lambdaS3codeBucket.yaml        # S3 Bucket for Storing Lambda Code(Versions)
 
-│   └── lambda.yaml                # Lambda Function
+│   └── lambda.yaml                    # Lambda Function
 
-│   └── s3.yaml                    # Trigger Bucket
+│   └── s3.yaml                        # Trigger Bucket
 
-│   └── sns.yaml                   # Simple Notification Service
+│   └── sns.yaml                       # Simple Notification Service
 
-├── buildspec.yml                  # Codebuild Spec
+├── buildspec.yml                      # Codebuild Spec
 
 
 
