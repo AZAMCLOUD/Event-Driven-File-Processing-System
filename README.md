@@ -22,23 +22,39 @@ This project is designed to:
 ##  AWS Services Used
 
  - **GitHub** : Source control and CI/CD trigger
+ - **AWS CodePipeline** : Automate CI/CD stages
  - **Cloudformation** : Infrastructure as Code
  - **Amazon Lambda** : Event-driven processing logic
  - **AWS CodeBuild** : Build Lambda package and store in S3 
- - **AWS CodePipeline** : Automate CI/CD stages
  - **Amazon S3** : Lambda code storage and event trigger
  - **SNS** : Notification service
  - **Amazon CloudWatch** : Logging and monitoring
 
 ---
 
-## Instance Deployment 
+## CI/CD
 
-The entire infrastructure for this project was provisioned using AWS CloudFormation, ensuring repeatable, automated, and version-controlled deployments,templates stored in Git.
+- Configured Infrastructure pipelines for the different infrastructures
 
-### Project Structure (GitHub)
+- Configured Lambda function pipeline integrated Codebuild
 
-event-driven-file-processing/
+- Configured CodeBuild to generate deployment artifacts and store lambda code versions.
+
+- Used CodeBuild deployment artifacts for Lambda Code Deployments
+
+- Configured Pipelines to trigger on GitHub commits.
+
+---
+
+## Pipeline Workflow
+
+### Source Stage (GitHub)
+
+- Monitors source repository for changes.
+
+ ####  GitHub Structure
+
+  event-driven-file-processing/
 
 ├── lambda/
 
@@ -55,6 +71,27 @@ event-driven-file-processing/
 │   └── sns.yaml                       # Simple Notification Service
 
 ├── buildspec.yml                      # Codebuild Spec
+
+  
+
+
+## Infrastucture Deployment 
+
+The entire infrastructure for this project was provisioned using AWS Cloudformation with Templates stored on Git pulled using Codepipeline
+
+This include:
+
+### Lambda Function 
+
+### Simple Notification Service
+
+### S3 Trigger Bucket
+
+### S3 Lambda Code Bucket
+
+
+
+
 
 
 
