@@ -22,17 +22,6 @@ This project implements a fully automated, event-driven file processing system u
 - Seamless source integration with GitHub
 - Full observability via CloudWatch logs
 
-## Infrastructure Deployment
-
-Infrastructure is defined using modular CloudFormation templates and deployed automatically via AWS CodePipeline. The build and deploy process is initiated by changes pushed to the GitHub repository.
-
-### CI/CD Flow
-
-1. **Source**: GitHub push triggers CodePipeline
-2. **Build**: CodeBuild compiles and uploads Lambda code to S3 
-3. **Deploy**: CloudFormation stacks are created/updated to reflect changes
-4. **Execution**: Lambda is triggered on new S3 object events
-
 ## File Structure
 
 ```
@@ -46,19 +35,42 @@ Infrastructure is defined using modular CloudFormation templates and deployed au
 └── buildspec.yml                # Build instructions for CodeBuild
 ```
 
+## CI/CD Flow for Infrastructure Deployment
+  ### LAMBDA
+- **Source**: GitHub push triggers CodePipeline
+- **Deploy**: CloudFormation stacks are created/updated to reflect changes
+
+ ### LAMBDA S3 CODE BUCKET
+- **Source**: GitHub push triggers CodePipeline
+- **Deploy**: CloudFormation stacks are created/updated to reflect changes
+
+ ### S3(SOURCE BUCKET)
+- **Source**: GitHub push triggers CodePipeline
+- **Deploy**: CloudFormation stacks are created/updated to reflect changes
+
+ ### SNS
+- **Source**: GitHub push triggers CodePipeline
+- **Deploy**: CloudFormation stacks are created/updated to reflect changes
+
+
+## CI/CD Flow for Lambda Code Deployment
+
+1. **Source**: GitHub push triggers CodePipeline
+2. **Build**: CodeBuild compiles and uploads Lambda code to S3, Creates artifacts 
+3. **Deploy**: Lambda Function code is updated to reflect changes
+
+## Project Workflow
+
+1. User Uploads file into source s3 bucket.
+2. S3 event triggers to invoke Lambda function.
+3. SNS to notify users upon successful processing.
+
+   
 ## Monitoring
 
 All Lambda invocations and pipeline activities are logged in **Amazon CloudWatch**. CloudWatch dashboards can be used to track performance, errors, and request counts.
 
-## Technologies Used
 
-- AWS Lambda
-- Amazon S3
-- AWS CloudFormation
-- AWS CodePipeline
-- AWS CodeBuild
-- Amazon CloudWatch
-- GitHub
 
 
 
