@@ -34,7 +34,7 @@ This project implements a fully automated, event-driven file processing system u
 │   └── sns.yaml                 # Simple Notification Service
 └── buildspec.yml                # Build instructions for CodeBuild
 ```
-![GITHUB](/event-driven-file-processing/Screenshots(6).png)
+![GITHUB](/event-driven-file-processing/Screenshot(6).png)
 
 ## CI/CD Flow for Infrastructure Deployment
 
