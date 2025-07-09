@@ -36,6 +36,7 @@ This project implements a fully automated, event-driven file processing system u
 ```
 
 ## CI/CD Flow for Infrastructure Deployment
+
   ### LAMBDA
 - **Source**: GitHub push triggers CodePipeline
 - **Deploy**: CloudFormation stacks are created/updated to reflect changes
