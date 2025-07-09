@@ -28,13 +28,24 @@ This project implements a fully automated, event-driven file processing system u
 ├── lambda/
 │   └── lambda_function.py       # Lambda Code
 ├── templates/
-│   ├── lambda.yaml              # Lambda + IAM definition
 |   |── lambdaS3codeBucket.yaml  # Bucket for artifacts
+│   ├── lambda.yaml              # Lambda + IAM definition
 │   ├── s3.yaml                  # Buckets for triggers 
 │   └── sns.yaml                 # Simple Notification Service
 └── buildspec.yml                # Build instructions for CodeBuild
 ```
 ![GITHUB](/event-driven-file-processing/Screenshot(6).png)
+
+![GITHUB](/event-driven-file-processing/Screenshot(1).png)
+
+![GITHUB](/event-driven-file-processing/Screenshot(2).png)
+
+![GITHUB](/event-driven-file-processing/Screenshot(3).png)
+
+![GITHUB](/event-driven-file-processing/Screenshot(4).png)
+
+![GITHUB](/event-driven-file-processing/Screenshot(5).png)
+
 
 ## CI/CD Flow for Infrastructure Deployment
 
